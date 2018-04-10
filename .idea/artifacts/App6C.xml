@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="App6C">
+    <output-path>$PROJECT_DIR$/out/artifacts/App6C</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.umesh.Main" />
+        <option name="description" value="" />
+        <option name="enabledSigning" value="true" />
+        <option name="height" value="620" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="icons">
+          <JavaFxApplicationIcons>
+            <option name="windowsIcon" value="$PROJECT_DIR$/src/main/resources/Engr.ico" />
+          </JavaFxApplicationIcons>
+        </option>
+        <option name="nativeBundle" value="exe" />
+        <option name="title" value="App6C Creator" />
+        <option name="vendor" value="Umesh Rai" />
+        <option name="version" value="1.1" />
+        <option name="width" value="900" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="App6C.jar">
+        <element id="module-output" name="App6C" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.canvas.Canvas?>
+<BorderPane fx:id="mainPane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.umesh.Controller">
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10"/>
+    </padding>
+    <top>
+        <VBox>
+            <Label alignment="CENTER" prefWidth="900" text="App6C Symbol Creator">
+                <font>
+                    <Font name="Arial Bold" size="24"/>
+                </font>
+            </Label>
+            <Separator maxWidth="900"><padding><Insets top="10" right="10"/></padding></Separator>
+        </VBox>
+    </top>
+    <center>
+        <VBox>
+            <GridPane gridLinesVisible="false" hgap="15" minWidth="-Infinity" vgap="15" HBox.hgrow="ALWAYS">
+                <padding>
+                    <Insets left="20" top="30" right="20"/>
+                </padding>
+
+                <Label text="Force :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <HBox spacing="10" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="0">
+                    <RadioButton fx:id="forceRadioBtn1" text="Unknown"/>
+                    <RadioButton fx:id="forceRadioBtn2" text="Friendly"/>
+                    <RadioButton fx:id="forceRadioBtn3" text="Neutral"/>
+                    <RadioButton fx:id="forceRadioBtn4" text="Hostile"/>
+                </HBox>
+                <Separator GridPane.columnIndex="0" GridPane.columnSpan="7" GridPane.rowIndex="1"/>
+
+                <Label text="Indicator :" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <HBox spacing="15" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="2">
+                    <ToggleButton fx:id="typeToggleBtn1" text="Installation"/>
+                    <ToggleButton fx:id="typeToggleBtn2" text="Task Force"/>
+                    <ToggleButton fx:id="typeToggleBtn3" text="Feint/ Dummy"/>
+                    <ToggleButton fx:id="typeToggleBtn4" text="HQ"/>
+                </HBox>
+
+                <Label text="Formation :" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="formationComboBox" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                          GridPane.rowIndex="3"/>
+                <Separator GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="7"/>
+
+                <HBox spacing="15" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="5">
+                    <Label text="Unit :" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextArea fx:id="fdUnit" promptText="Example: 16 SQN" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                              prefRowCount="2" maxWidth="200"/>
+                    <Label text="Higher Formation :" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                    <TextArea fx:id="fdHigherFormation" promptText="Example: 42 ENGR" GridPane.columnIndex="4"
+                              GridPane.rowIndex="3" prefRowCount="2" maxWidth="200"/>
+                </HBox>
+
+                <Separator GridPane.columnIndex="0" GridPane.columnSpan="7" GridPane.rowIndex="6"/>
+
+                <HBox alignment="TOP_LEFT" GridPane.columnIndex="0" GridPane.columnSpan="8" GridPane.rowIndex="7">
+                    <VBox>
+                        <VBox spacing="5">
+                            <Label text="Sub-Unit:"/>
+                            <ComboBox fx:id="subUnitComboBox" prefWidth="250"></ComboBox>
+                        </VBox>
+                        <padding>
+                            <Insets right="40"/>
+                        </padding>
+                    </VBox>
+
+                    <VBox maxWidth="200" alignment="TOP_CENTER" spacing="10"
+                          style="-fx-border-style: solid; -fx-border-color: cadetblue; -fx-background-color: #fff; ">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                        <HBox style="-fx-border-style: dashed; -fx-border-color:grey">
+                            <Canvas fx:id="renderCanvas" height="200" width="300"/>
+                        </HBox>
+                        <HBox spacing="10" alignment="BASELINE_RIGHT">
+                            <Button text="Clear" onAction="#clearCanvas" minHeight="30" minWidth="80"/>
+                            <Button text="Save as PNG" onAction="#saveFile" minHeight="30"/>
+                        </HBox>
+                    </VBox>
+                </HBox>
+                <TextFlow fx:id="creditTextFlow" GridPane.columnIndex="0" GridPane.rowIndex="8" GridPane.columnSpan="7"
+                          style="-fx-font-color: gray; -fx-text-alignment:right;">
+
+                </TextFlow>
+            </GridPane>
+        </VBox>
+    </center>
+    <HBox fx:id="rightPane">
+        <FlowPane fx:id="textFlowPane" alignment="CENTER_LEFT" minHeight="150"
+                  style=" -fx-max-width: 200; -fx-border-style: dashed; -fx-border-color: darkgrey " vgap="5">
+            <Label fx:id="lblUnit" minHeight="70" alignment="BOTTOM_RIGHT" prefWidth="55" wrapText="true"
+                   style="-fx-font-size: 18; -fx-font-weight: 700; -fx-text-alignment: right"/>
+            <Text fx:id="formation"/>
+            <Text fx:id="backGroundSym"></Text>
+            <Text fx:id="typeSymbol"/>
+            <Text fx:id="mainSymbol"/>
+            <Label fx:id="lblHigherFormation" minHeight="70" alignment="BOTTOM_LEFT" prefWidth="55" wrapText="true"
+                   style="-fx-font-size: 18; -fx-font-weight: 700; -fx-text-alignment: left"/>
+            <padding>
+                <Insets bottom="20" top="10"/>
+            </padding>
+        </FlowPane>
+    </HBox>
+
+
+    <left>
+        <VBox spacing="6">
+            <padding>
+                <Insets top="10" bottom="15"/>
+            </padding>
+            <Label text="Unit List:"/>
+            <ListView fx:id="unitListView" VBox.vgrow="ALWAYS">
+            </ListView>
+        </VBox>
+
+    </left>
+
+
+</BorderPane>
